@@ -56,15 +56,16 @@ let Player = (function(position, size, speed, color, controls) {
     };
 });
 
-let World = (function(size) {
+let World = (function(game, size) {
     this.objects = [];
     this.size = (size || 124);
     
     //////////////////
 
     this.add = function(obj) {
-        if (this.objects.length > this.size) {
-            this.stop();
+        if (this.objects.length >= this.size) {
+            // Supposed to crash the game
+            // this.stop();
             alert(`Object limit exceeded! (${this.objects.length}/${this.size})`);
             return;
         }
